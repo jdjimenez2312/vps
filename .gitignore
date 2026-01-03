@@ -1,0 +1,44 @@
+#!/bin/bash
+# ============================================================================
+# .gitignore - Patrones de archivos a ignorar en git
+# ============================================================================
+
+# Logs
+logs/
+*.log
+/var/log/vps-installer/
+
+# Archivos temporales
+*.tmp
+*.temp
+/tmp/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Archivos de configuración local
+.env
+.env.local
+*.conf.local
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Directorios del sistema
+.git/
+node_modules/
+.cache/
+
+# Scripts descargados temporalmente
+/downloads/
+*.sh.bak
+
+# Archivos sensibles
+*.key
+*.pem
+*.p12
+secrets.txt

@@ -1,45 +1,79 @@
 #!/bin/bash
 
+set -euo pipefail
+
+# Cargar configuración centralizada
+CONFIG_URL="https://raw.githubusercontent.com/kadma/vps/refs/heads/dev/config.sh"
+if ! source <(wget -qO - "$CONFIG_URL"); then
+    echo "Error: No se pudo cargar la configuración centralizada"
+    exit 1
+fi
+
+# Inicializar logging
+setup_logging
+check_root
+check_internet
+
 # Función para mostrar el menú
 mostrar_menu() {
     clear
-    echo "------------------------"
-    echo "  MENU DE HERRAMIENTAS "
-    echo "------------------------"
-    echo "1. docker"
-    echo "2. bashrc"
-    echo "3. firefox fix"
-    echo "4. portainer update"
-    echo "5. mkvtoolnix + qbittorrent + freedownloadmanager"
+    echo -e "${BLUE}========================${NC}"
+    echo -e "${BLUE}  MENU DE HERRAMIENTAS${NC}"
+    echo -e "${BLUE}========================${NC}"
+    echo "1. Docker"
+    echo "2. Bashrc"
+    echo "3. Firefox Fix"
+    echo "4. Portainer Update"
+    echo "5. MKVToolNix + QBitTorrent + FreeDownloadManager"
     echo "q. Salir"
-    echo "------------------------"
+    echo -e "${BLUE}========================${NC}"
+    echo
 }
 
-
-# Zona de Funcionse
+# Zona de Funciones
 solo_docker() {
-    echo "Instalando Docker"
-    sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/kadma/vps/refs/heads/main/herramientas/install-docker.sh)"
+    print_info "Instalando Docker"
+    if confirm "¿Deseas continuar?"; then
+        download_and_run "herramientas/install-docker.sh"
+    else
+        print_warning "Instalación cancelada"
+    fi
 }
 
 bashrc() {
-    echo "Agregando comandos a bashrc"
-    sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/kadma/vps/refs/heads/main/herramientas/bashrc.sh)"
+    print_info "Agregando comandos a bashrc"
+    if confirm "¿Deseas continuar?"; then
+        download_and_run "herramientas/bashrc.sh"
+    else
+        print_warning "Instalación cancelada"
+    fi
 }
 
 firefox_fix() {
-    echo "Arreglando Firefox."
-    sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/kadma/vps/refs/heads/main/herramientas/firefox%20fix.sh)"
+    print_info "Arreglando Firefox"
+    if confirm "¿Deseas continuar?"; then
+        download_and_run "herramientas/firefox-fix.sh"
+    else
+        print_warning "Instalación cancelada"
+    fi
 }
 
 portainer_update() {
-    echo "Actualizando el portainer."
-    sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/kadma/vps/refs/heads/main/herramientas/portainer%20update.sh)"
+    print_info "Actualizando Portainer"
+    if confirm "¿Deseas continuar?"; then
+        download_and_run "herramientas/portainer-update.sh"
+    else
+        print_warning "Actualización cancelada"
+    fi
 }
 
 mkv_qbit_fdm() {
-    echo "Instalando Mkvtoolnix, qbittorrent y FreeDownloadManager"
-    sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/kadma/vps/refs/heads/main/herramientas/nuevo%2Bmkvtoolnix%2Bqbittorrent%2Bfreedownloadmanager.sh)"
+    print_info "Instalando MKVToolNix, QBitTorrent y FreeDownloadManager"
+    if confirm "¿Deseas continuar? (esta instalación puede tomar varios minutos)"; then
+        download_and_run "herramientas/install-mkvtoolnix-qbittorrent-freedownloadmanager.sh"
+    else
+        print_warning "Instalación cancelada"
+    fi
 }
 
 
@@ -65,11 +99,13 @@ while true; do
             mkv_qbit_fdm
             ;;
         q)
-            clear
+            print_info "Saliendo..."
+            print_success "Logs guardados en: $LOG_FILE"
             exit 0
             ;;
         *)
-            echo "Opción no válida. Inténtalo de nuevo."
+            print_error "Opción no válida. Inténtalo de nuevo."
+            sleep 1
             ;;
     esac
 done
