@@ -1,20 +1,20 @@
-﻿# ðŸš€ VPS Installer & Tools
+﻿# 🚀 VPS Installer & Tools
 
 > [!IMPORTANT]
-> Version: 1.0.0 | Ãšltima actualizaciÃ³n: Enero 2026
+> Version: 1.0.0 | Última actualización: Enero 2026
 
-Scripts automatizados para instalar y configurar herramientas en VPS reciÃ©n creados. Elimina la necesidad de hacer instalaciones manuales repetitivas.
+Scripts automatizados para instalar y configurar herramientas en VPS recién creados. Elimina la necesidad de hacer instalaciones manuales repetitivas.
 
 ---
 
-## ðŸ“‹ Requisitos Previos
+## 📋 Requisitos Previos
 
 - **SO**: Linux (Debian/Ubuntu o CentOS/RHEL)
 - **Kernel**: 3.10+
-- **RAM**: MÃ­nimo 512MB (recomendado 1GB+)
-- **Espacio**: MÃ­nimo 5GB disponibles
-- **Permisos**: Root o usuario con `sudo` sin contraseÃ±a
-- **ConexiÃ³n**: Acceso a internet activo
+- **RAM**: Mínimo 512MB (recomendado 1GB+)
+- **Espacio**: Mínimo 5GB disponibles
+- **Permisos**: Root o usuario con `sudo` sin contraseña
+- **Conexión**: Acceso a internet activo
 - **Herramientas**: `wget` debe estar instalado
 
 ### Verificar requisitos
@@ -31,24 +31,24 @@ df -h /
 
 ---
 
-## âš¡ Uso RÃ¡pido
+## ⚡ Uso Rápido
 
 ### Instalador Principal
-MenÃº interactivo para instalar Docker con paneles de control:
+Menú interactivo para instalar Docker con paneles de control:
 
 ```bash
 sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/kadma/vps/main/instalador.sh)"
 ```
 
 **Opciones disponibles:**
-1. **Docker + Portainer** - Panel ligero y versÃ¡til
+1. **Docker + Portainer** - Panel ligero y versátil
 2. **Docker + EasyPanel** - Interfaz moderna
 3. **Docker + AaPanel** - Panel completo con hosting
 4. **Docker + CyberPanel** - Seguridad integrada
 5. **Docker + Cosmos** - Dashboard moderno
 
 ### Herramientas Adicionales
-MenÃº para instalar herramientas y utilidades individuales:
+Menú para instalar herramientas y utilidades individuales:
 
 ```bash
 sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/kadma/vps/main/herramientas.sh)"
@@ -63,62 +63,62 @@ sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/kadma/vps/main/her
 
 ---
 
-## ðŸ“ Estructura del Proyecto
+## 📁 Estructura del Proyecto
 
 ```
 vps/
-â”œâ”€â”€ instalador.sh                           # MenÃº principal de instalaciÃ³n
-â”œâ”€â”€ herramientas.sh                         # MenÃº de herramientas individuales
-â”œâ”€â”€ config.sh                               # ConfiguraciÃ³n centralizada
-â”œâ”€â”€ VERSION                                 # Control de versiÃ³n
-â”œâ”€â”€ README.md                               # Esta documentaciÃ³n
-â”œâ”€â”€ instaladores/                           # Scripts de instalaciÃ³n
-â”‚   â”œâ”€â”€ nuevo+docker+portainer.sh
-â”‚   â”œâ”€â”€ nuevo+docker+easypanel.sh
-â”‚   â”œâ”€â”€ nuevo+docker+aapanel.sh
-â”‚   â”œâ”€â”€ nuevo+docker+cyberpanel.sh
-â”‚   â””â”€â”€ nuevo+docker+cosmos.sh
-â””â”€â”€ herramientas/                           # Scripts de herramientas
-    â”œâ”€â”€ install-docker.sh
-    â”œâ”€â”€ bashrc.sh
-    â”œâ”€â”€ firefox-fix.sh
-    â”œâ”€â”€ portainer-update.sh
-    â””â”€â”€ install-mkvtoolnix-qbittorrent-freedownloadmanager.sh
+├── instalador.sh                           # Menú principal de instalación
+├── herramientas.sh                         # Menú de herramientas individuales
+├── config.sh                               # Configuración centralizada
+├── VERSION                                 # Control de versión
+├── README.md                               # Esta documentación
+├── instaladores/                           # Scripts de instalación
+│   ├── nuevo+docker+portainer.sh
+│   ├── nuevo+docker+easypanel.sh
+│   ├── nuevo+docker+aapanel.sh
+│   ├── nuevo+docker+cyberpanel.sh
+│   └── nuevo+docker+cosmos.sh
+└── herramientas/                           # Scripts de herramientas
+    ├── install-docker.sh
+    ├── bashrc.sh
+    ├── firefox-fix.sh
+    ├── portainer-update.sh
+    └── install-mkvtoolnix-qbittorrent-freedownloadmanager.sh
 ```
 
 ---
 
-## ðŸ” CaracterÃ­sticas Principales
+## 🔍 Características Principales
 
-### âœ… Manejo Robusto de Errores
-- ValidaciÃ³n de permisos y dependencias
-- VerificaciÃ³n de conexiÃ³n a internet
-- Manejo automÃ¡tico de fallos con rollback
+### ✅ Manejo Robusto de Errores
+- Validación de permisos y dependencias
+- Verificación de conexión a internet
+- Manejo automático de fallos con rollback
 - Mensajes de error descriptivos
 
-### ðŸ“ Sistema de Logging
-- Logs automÃ¡ticos en `/var/log/vps-installer/`
-- Trazabilidad completa de cada instalaciÃ³n
+### 📝 Sistema de Logging
+- Logs automáticos en `/var/log/vps-installer/`
+- Trazabilidad completa de cada instalación
 - Timestamps y niveles de severidad
-- Facilita troubleshooting y auditorÃ­a
+- Facilita troubleshooting y auditoría
 
-### ðŸ” Seguridad Mejorada
-- ValidaciÃ³n de permisos requeridos
-- ConfirmaciÃ³n antes de operaciones crÃ­ticas
+### 🔐 Seguridad Mejorada
+- Validación de permisos requeridos
+- Confirmación antes de operaciones críticas
 - Descargas verificadas
-- EjecuciÃ³n en rama estable
+- Ejecución en rama estable
 
-### ðŸŽ¨ Interfaz Amigable
+### 🎨 Interfaz Amigable
 - Colores para mejor legibilidad
-- MenÃºs interactivos y claros
+- Menús interactivos y claros
 - Mensajes de progreso en tiempo real
-- Opciones de confirmaciÃ³n antes de cambios
+- Opciones de confirmación antes de cambios
 
 ---
 
-## ðŸ“– GuÃ­a de Uso Detallada
+## 📖 Guía de Uso Detallada
 
-### 1. InstalaciÃ³n Inicial
+### 1. Instalación Inicial
 
 ```bash
 # Actualizar sistema (recomendado)
@@ -128,32 +128,32 @@ sudo apt update && sudo apt upgrade -y
 sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/kadma/vps/main/instalador.sh)"
 ```
 
-### 2. Seleccionar OpciÃ³n
+### 2. Seleccionar Opción
 - Elige el panel que desees instalar (1-5)
 - Confirma cuando se solicite
-- El script se descargarÃ¡ e instalarÃ¡ automÃ¡ticamente
-- Los logs se guardarÃ¡n para referencia futura
+- El script se descargará e instalará automáticamente
+- Los logs se guardarán para referencia futura
 
-### 3. Verificar InstalaciÃ³n
+### 3. Verificar Instalación
 ```bash
-# Ver logs de la instalaciÃ³n
+# Ver logs de la instalación
 tail -f /var/log/vps-installer/install_*.log
 
 # Verificar Docker
 sudo docker --version
 
-# Acceder a tu panel (puertos varÃ­an segÃºn elecciÃ³n)
+# Acceder a tu panel (puertos varían según elección)
 # Portainer: http://tu-vps:9000
 # EasyPanel: http://tu-vps:3000
 ```
 
 ---
 
-## ðŸ› ï¸ SoluciÃ³n de Problemas
+## 🛠️ Solución de Problemas
 
-### Error: "No hay conexiÃ³n a internet"
+### Error: "No hay conexión a internet"
 ```bash
-# Verificar conexiÃ³n
+# Verificar conexión
 ping -c 3 google.com
 
 # Verificar DNS
@@ -185,21 +185,21 @@ sudo yum install wget
 sudo apk add wget
 ```
 
-### Ver logs de instalaciÃ³n
+### Ver logs de instalación
 ```bash
 # Listar logs disponibles
 ls -lh /var/log/vps-installer/
 
-# Ver Ãºltimo log
+# Ver último log
 tail -50 /var/log/vps-installer/install_*.log
 
-# Ver log especÃ­fico
+# Ver log específico
 cat /var/log/vps-installer/install_20260103_120530.log
 ```
 
 ---
 
-## ðŸ”§ ConfiguraciÃ³n Centralizada
+## 🔧 Configuración Centralizada
 
 El archivo `config.sh` contiene:
 - URLs del repositorio
@@ -207,23 +207,23 @@ El archivo `config.sh` contiene:
 - Funciones comunes reutilizables
 - Colores y formatos de mensajes
 
-**No edites directamente este archivo desde scripts.** Se carga automÃ¡ticamente.
+**No edites directamente este archivo desde scripts.** Se carga automáticamente.
 
 ---
 
-## ðŸ“Š Paneles Disponibles
+## 📊 Paneles Disponibles
 
-| Panel | CaracterÃ­sticas | Puertos | Casos de Uso |
+| Panel | Características | Puertos | Casos de Uso |
 |-------|-----------------|---------|------------|
-| **Portainer** | Ligero, fÃ¡cil, visual | 9000 | Principiantes, mÃºltiples contenedores |
+| **Portainer** | Ligero, fácil, visual | 9000 | Principiantes, múltiples contenedores |
 | **EasyPanel** | Moderno, intuitivo | 3000 | UI limpia, uso general |
-| **AaPanel** | Completo, web hosting | 7800 | Hosting, mÃºltiples sitios |
+| **AaPanel** | Completo, web hosting | 7800 | Hosting, múltiples sitios |
 | **CyberPanel** | Seguridad, SSL | 8090 | Seguridad, certificados |
 | **Cosmos** | Moderno, minimalista | 80/443 | Dashboard agregado |
 
 ---
 
-## ðŸ“œ Versionado
+## 📜 Versionado
 
 - **Actual**: 1.0.0
 - **Rama estable**: main
@@ -236,7 +236,7 @@ cat VERSION
 
 ---
 
-## ðŸ¤ Contribuir
+## 🤝 Contribuir
 
 1. Fork el repositorio
 2. Crea una rama (`git checkout -b feature/mejora`)
@@ -246,17 +246,17 @@ cat VERSION
 
 ---
 
-## ðŸ“ Notas Importantes
+## 📝 Notas Importantes
 
-- âš ï¸ **Haz backup** antes de instalar en servidores en producciÃ³n
-- âš ï¸ **Lee los logs** despuÃ©s de cada instalaciÃ³n
-- âš ï¸ **Verifica acceso** despuÃ©s de instalar (puertos, firewall)
-- âœ… Los scripts son idempotentes (seguro ejecutar mÃºltiples veces)
-- âœ… Las instalaciones se pueden ejecutar en cualquier orden
+- ⚠️ **Haz backup** antes de instalar en servidores en producción
+- ⚠️ **Lee los logs** después de cada instalación
+- ⚠️ **Verifica acceso** después de instalar (puertos, firewall)
+- ✅ Los scripts son idempotentes (seguro ejecutar múltiples veces)
+- ✅ Las instalaciones se pueden ejecutar en cualquier orden
 
 ---
 
-## ðŸ“ž Soporte
+## 📞 Soporte
 
 Para reportar problemas:
 1. Revisa el log completo: `/var/log/vps-installer/`
@@ -265,10 +265,10 @@ Para reportar problemas:
 
 ---
 
-## ðŸ“„ Licencia
+## 📄 Licencia
 
-GPL-3.0 - Ver LICENSE para mÃ¡s detalles
+GPL-3.0 - Ver LICENSE para más detalles
 
 ---
 
-**Ãšltima actualizaciÃ³n**: Enero 3, 2026 | **VersiÃ³n**: 1.0.0
+**Última actualización**: Enero 3, 2026 | **Versión**: 1.0.0
