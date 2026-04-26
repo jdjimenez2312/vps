@@ -29,15 +29,15 @@ mostrar_menu() {
 ejecutar_script() {
     local script_name=$1
     echo -e "\n${GREEN}Ejecutando: ${script_name}...${NC}"
-    sudo bash -c "$(curl -sL $BASE_URL/herramientas/$script_name)"
+    sudo bash -c "$(curl -sL "$BASE_URL/herramientas/$script_name")"
     echo -e "\n${CYAN}Proceso finalizado.${NC}"
-    read -p "Presiona Enter para continuar..."
+    read -r -p "Presiona Enter para continuar..."
 }
 
 while true; do
     mostrar_menu
     echo ""
-    read -p "Selecciona una opción (1-5) o q para regresar: " opcion
+    read -r -p "Selecciona una opción (1-5) o q para regresar: " opcion
     case $opcion in
         1) ejecutar_script "install-docker.sh" ;;
         2) ejecutar_script "bashrc.sh" ;;

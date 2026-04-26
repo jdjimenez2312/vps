@@ -30,7 +30,7 @@ export BASE_URL # Exportar para que los sub-scripts puedan usarla si es necesari
 while true; do
     mostrar_menu
     echo ""
-    read -p "Selecciona una opción (1-2) o q para salir: " opcion
+    read -r -p "Selecciona una opción (1-2) o q para salir: " opcion
     case $opcion in
         1)
             echo -e "${GREEN}Cargando Menú de Instalación...${NC}"

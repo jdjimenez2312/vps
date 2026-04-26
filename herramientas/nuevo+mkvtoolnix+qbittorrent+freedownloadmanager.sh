@@ -1,3 +1,4 @@
+#!/bin/bash
 apt update && apt upgrade -y && apt autoremove -y
 apt install wget -y
 wget -O /usr/share/keyrings/gpg-pub-moritzbunkus.gpg https://mkvtoolnix.download/gpg-pub-moritzbunkus.gpg
